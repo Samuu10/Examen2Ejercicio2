@@ -1,6 +1,6 @@
 # APLICACIÓN PARA LISTAR EVENTOS
 
-## OBJETIVO:
+## - OBJETIVO:
 El objetivo de este ejercicio es realizar una aplicación que permita al usuario gestionar un listado de eventos de manera sencilla.
 Los usuarios podrá anñadir y eliminar eventos a una lista.
 Además la aplicación tendrá soporte para español e inglés.
