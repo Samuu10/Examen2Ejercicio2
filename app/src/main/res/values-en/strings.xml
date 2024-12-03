@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">EVENT MANAGEMENT</string>
     <string name="add_event">Add Event</string>
-    <string name="event_list">Event List</string>
+    <string name="event_list">EVENT LIST:</string>
     <string name="add_event_title">ADD EVENT:</string>
     <string name="event_name_hint">Event Name *</string>
     <string name="event_description_hint">Event Description *</string>

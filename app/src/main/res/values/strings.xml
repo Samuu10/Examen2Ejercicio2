@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">GESTIÓN DE EVENTOS</string>
     <string name="add_event">Añadir Evento</string>
-    <string name="event_list">Lista de Eventos</string>
+    <string name="event_list">LISTA DE EVENTOS:</string>
     <string name="add_event_title">AÑADIR EVENTO:</string>
     <string name="event_name_hint">Nombre del evento *</string>
     <string name="event_description_hint">Descripción del evento *</string>
