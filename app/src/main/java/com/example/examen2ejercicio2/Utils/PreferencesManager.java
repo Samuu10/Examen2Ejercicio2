@@ -9,36 +9,36 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-// Class to manage shared preferences for storing events
+//Clase PreferencesManager que se utiliza para gestionar las preferencias de la aplicación y guardar los eventos en SharedPreferences
 public class PreferencesManager {
 
-    // Constants
+    //Variables
     private static final String PREF_NAME = "event_preferences";
     private static final String KEY_EVENTOS = "eventos";
     private SharedPreferences sharedPreferences;
     private Gson gson;
 
-    // Constructor
+    //Constructor
     public PreferencesManager(Context context) {
         sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         gson = new Gson();
     }
 
-    // Method to save an event in shared preferences
+    //Metodo para guardar un evento en SharedPreferences
     public void guardarEvento(Evento evento) {
         List<Evento> eventos = cargarEventos();
         eventos.add(evento);
         guardarEventos(eventos);
     }
 
-    // Method to load events from shared preferences
+    //Metodo para cargar la lista de eventos desde SharedPreferences
     public List<Evento> cargarEventos() {
         String json = sharedPreferences.getString(KEY_EVENTOS, null);
         Type type = new TypeToken<ArrayList<Evento>>() {}.getType();
         return json != null ? gson.fromJson(json, type) : new ArrayList<>();
     }
 
-    // Method to save the list of events in shared preferences
+    //Metodo para guardar la lista de eventos en SharedPreferences
     private void guardarEventos(List<Evento> eventos) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         String json = gson.toJson(eventos);
@@ -46,10 +46,15 @@ public class PreferencesManager {
         editor.apply();
     }
 
-    // Method to delete an event from shared preferences
+    //Metodo para eliminar un evento de sharedPreferences
     public void eliminarEvento(Evento evento) {
         List<Evento> eventos = cargarEventos();
-        eventos.remove(evento);
+        eventos.removeIf(e -> e.getNombre().equals(evento.getNombre()) &&
+                e.getDescripcion().equals(evento.getDescripcion()) &&
+                e.getDireccion().equals(evento.getDireccion()) &&
+                e.getPrecio().equals(evento.getPrecio()) &&
+                e.getFecha().equals(evento.getFecha()) &&
+                e.getAforo().equals(evento.getAforo()));
         guardarEventos(eventos);
     }
 }

@@ -18,21 +18,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+//Clase para mostrar la lista de eventos en un RecyclerView
 public class FragmentoListaEventos extends Fragment {
 
-    // Variables
+    //Variables
     private RecyclerView recyclerView;
     private AdaptadorEvento adaptadorEvento;
     private List<Evento> listaEventos;
     private PreferencesManager preferencesManager;
 
-    // Method to create the fragment view
+    //Metodo para crear la vista del fragmento
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmento_lista_eventos, container, false);
 
-        // Initialize variables
+        //Inicializamos las variables
         recyclerView = view.findViewById(R.id.recycler_view_clases);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         preferencesManager = new PreferencesManager(getContext());
@@ -40,14 +41,14 @@ public class FragmentoListaEventos extends Fragment {
         return view;
     }
 
-    // Method that runs when the fragment is resumed
+    //Metodo que se ejecuta al reanudar el fragmento
     @Override
     public void onResume() {
         super.onResume();
         cargarEventos();
     }
 
-    // Method to load the events into the RecyclerView
+    //Metodo para cargar los eventos en el RecyclerView
     private void cargarEventos() {
         listaEventos = preferencesManager.cargarEventos();
         if (listaEventos == null) {
@@ -62,7 +63,7 @@ public class FragmentoListaEventos extends Fragment {
         adaptadorEvento.setOnItemClickListener(evento -> mostrarDialogoConfirmacion(evento));
     }
 
-    // Method to show a confirmation dialog when deleting an event
+    //Metodo para mostrar un dialogo de confirmación al eliminar un evento al pulsar sobre él
     private void mostrarDialogoConfirmacion(Evento evento) {
         new AlertDialog.Builder(getContext())
                 .setTitle("Eliminar Evento")
@@ -72,7 +73,7 @@ public class FragmentoListaEventos extends Fragment {
                 .show();
     }
 
-    // Method to delete an event
+    //Metodo para eliminar un evento de la lista de eventos
     private void eliminarEvento(Evento evento) {
         listaEventos.remove(evento);
         preferencesManager.eliminarEvento(evento);

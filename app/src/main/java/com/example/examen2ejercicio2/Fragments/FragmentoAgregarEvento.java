@@ -15,9 +15,10 @@ import com.example.examen2ejercicio2.GestionEventos.Evento;
 import com.example.examen2ejercicio2.R;
 import com.example.examen2ejercicio2.Utils.PreferencesManager;
 
+//Fragmento para agregar un nuevo evento
 public class FragmentoAgregarEvento extends Fragment {
 
-    // Variables
+    //Variables
     private EditText nombre;
     private EditText descripcion;
     private EditText direccion;
@@ -26,13 +27,13 @@ public class FragmentoAgregarEvento extends Fragment {
     private EditText aforo;
     private PreferencesManager preferencesManager;
 
-    // Method to create the fragment view
+    //Metodo para crear la vista del fragmento
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmento_agregar_evento, container, false);
 
-        // Initialize variables
+        //Inicializamos las variables
         nombre = view.findViewById(R.id.nombre_evento);
         descripcion = view.findViewById(R.id.descripcion_evento);
         direccion = view.findViewById(R.id.direccion_evento);
@@ -41,7 +42,7 @@ public class FragmentoAgregarEvento extends Fragment {
         aforo = view.findViewById(R.id.aforo_evento);
         preferencesManager = new PreferencesManager(getContext());
 
-        // Configure buttons
+        //configuramos los botones
         Button btnAgregar = view.findViewById(R.id.btn_agregar);
         Button btnCancelar = view.findViewById(R.id.btn_cancelar);
         btnAgregar.setOnClickListener(v -> agregarEvento());
@@ -50,7 +51,7 @@ public class FragmentoAgregarEvento extends Fragment {
         return view;
     }
 
-    // Method to add a new event
+    //Metodo para agregar un evento a la lista de eventos
     private void agregarEvento() {
         String nombreEvento = nombre.getText().toString().trim();
         String descripcionEvento = descripcion.getText().toString().trim();
@@ -59,7 +60,7 @@ public class FragmentoAgregarEvento extends Fragment {
         String fechaEvento = fecha.getText().toString().trim();
         String aforoEvento = aforo.getText().toString().trim();
 
-        // If any required field is empty, show an error message
+        //Comprobamos que los campos obligatorios no estén vacíos
         if (nombreEvento.isEmpty() || descripcionEvento.isEmpty() || precioEvento.isEmpty()) {
             Toast.makeText(getContext(), "Por favor, complete los campos obligatorios", Toast.LENGTH_SHORT).show();
             return;
@@ -69,7 +70,7 @@ public class FragmentoAgregarEvento extends Fragment {
         new SaveEventoTask().execute(nuevoEvento);
     }
 
-    // AsyncTask class to save the new event in shared preferences in the background
+    //Clase para guardar un evento en segundo plano
     private class SaveEventoTask extends AsyncTask<Evento, Void, Void> {
         @Override
         protected Void doInBackground(Evento... eventos) {
@@ -86,7 +87,7 @@ public class FragmentoAgregarEvento extends Fragment {
         }
     }
 
-    // Method to cancel the action and return to the initial fragment
+    //Metodo para cancelar la operación
     private void cancelar() {
         getParentFragmentManager().popBackStack();
     }
