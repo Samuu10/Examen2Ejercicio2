@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">Examen2Ejercicio2</string>
+    <string name="app_name">GESTIÓN DE EVENTOS</string>
+    <string name="add_event">Añadir Evento</string>
+    <string name="event_list">Lista de Eventos</string>
+    <string name="add_event_title">AÑADIR EVENTO:</string>
+    <string name="event_name_hint">Nombre del evento *</string>
+    <string name="event_description_hint">Descripción del evento *</string>
+    <string name="event_address_hint">Dirección del evento</string>
+    <string name="event_price_hint">Precio del evento *</string>
+    <string name="event_date_hint">Fecha del evento</string>
+    <string name="event_capacity_hint">Aforo del evento</string>
+    <string name="add_button">Agregar</string>
+    <string name="cancel_button">Cancelar</string>
+    <string name="event_name_label">Nombre: </string>
+    <string name="event_description_label">Descripción: </string>
+    <string name="event_price_label">Precio: </string>
 </resources>

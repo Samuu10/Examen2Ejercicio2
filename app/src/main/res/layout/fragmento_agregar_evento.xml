@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_event_title"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp" />
+
+    <EditText
+        android:id="@+id/nombre_evento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_name_hint"
+        android:inputType="textCapWords"
+        android:layout_below="@id/titulo"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"/>
+
+    <EditText
+        android:id="@+id/descripcion_evento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_description_hint"
+        android:inputType="textCapSentences"
+        android:layout_below="@id/nombre_evento"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"/>
+
+    <EditText
+        android:id="@+id/direccion_evento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_address_hint"
+        android:inputType="textPostalAddress"
+        android:layout_below="@id/descripcion_evento"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"/>
+
+    <EditText
+        android:id="@+id/precio_evento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_price_hint"
+        android:inputType="numberDecimal"
+        android:layout_below="@id/direccion_evento"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"/>
+
+    <EditText
+        android:id="@+id/fecha_evento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_date_hint"
+        android:inputType="date"
+        android:layout_below="@id/precio_evento"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"/>
+
+    <EditText
+        android:id="@+id/aforo_evento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_capacity_hint"
+        android:inputType="number"
+        android:layout_below="@id/fecha_evento"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"/>
+
+    <LinearLayout
+        android:id="@+id/bottom_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_agregar"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@color/teal_700"
+            android:textColor="@color/white"
+            android:text="@string/add_button" />
+
+        <Button
+            android:id="@+id/btn_cancelar"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_700"
+            android:textColor="@color/white"
+            android:text="@string/cancel_button" />
+    </LinearLayout>
+
+</RelativeLayout>
